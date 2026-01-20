@@ -80,8 +80,8 @@ payment-service/
 ### 1️⃣ Clonar o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/payment-shadow-istio.git
-cd payment-shadow-istio
+git clone https://github.com/matheusrdelima/shadow-test.git
+cd shadow-test/payment-service
 ```
 
 ---
