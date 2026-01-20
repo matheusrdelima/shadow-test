@@ -1,0 +1,27 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: payment
+spec:
+  hosts:
+    - payment
+  http:
+
+    # REGRA 1 — shadow ativado
+    - match:
+        - headers:
+            x-shadow:
+              exact: "true"
+      route:
+        - destination:
+            host: payment
+            subset: v1
+      mirror:
+        host: payment
+        subset: v2
+
+    # REGRA 2 — tráfego normal
+    - route:
+        - destination:
+            host: payment
+            subset: v1
